@@ -29,3 +29,22 @@ body{font-size:16px}.hello-copy>p:not(.eyebrow){font-size:16px}.quiet-link{font-
   .portrait { width: 145px; }
   .portrait-crop { width: 135px; height: 162px; }
 }
+/* Footer on the first screen: tighter vertical rhythm (desktop only) */
+@media (min-width: 761px) {
+  .home-page .hello { padding-top: 28px; padding-bottom: 28px; }
+  .portrait { margin-bottom: 18px; }
+  .home-page h1 { margin-bottom: 16px; }
+  .hello-copy > p:not(.eyebrow) { line-height: 1.7; margin-bottom: 10px; }
+  .art-note { padding: 20px 0; }
+  .art-note p { line-height: 1.5; }
+  .home-links { padding: 20px 0 6px; }
+  footer { margin-top: 24px; padding: 14px 0 20px; }
+}
+
+/* Short screens only: shrink the portrait a bit more */
+@media (min-width: 761px) and (max-height: 820px) {
+  .portrait { width: 130px; }
+  .portrait-crop { width: 120px; height: 144px; }
+  .home-page .hello { padding-top: 20px; padding-bottom: 20px; }
+  .art-note p { font-size: 21px; }
+}
