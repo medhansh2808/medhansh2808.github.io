@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" data-theme="day">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Medhansh Abhilash — robotics, robot learning, and making things move. Built McQueen, a single-camera autonomous RC car.">
+<meta name="theme-color" content="#f7f5ef"><title>Work · Medhansh Abhilash</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+<script src="site.js" defer></script>
+</head>
+<body class="work-page">
+<a class="skip" href="#main">Skip to content</a>
+<div class="page">
+<header class="masthead">
+<a href="index.html" class="signature" aria-label="Medhansh Abhilash, home"><span class="asterisk" aria-hidden="true">✳</span> medhansh abhilash</a>
+<nav aria-label="Main navigation"><a href="index.html" data-page="home">home</a><a href="work.html" data-page="work" aria-current="page">work</a><a href="writing.html" data-page="writing">writing</a><button id="theme" class="icon-button" aria-label="Switch to dark theme" title="A change of light"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 6a6 6 0 0 1 0 12Z" fill="currentColor"/></svg></button></nav>
+</header>
+<main id="main"><div class="page-intro"><p class="eyebrow">HARDWARE, SOFTWARE, AND EVERYTHING BETWEEN</p><h1>Things in motion<span>.</span></h1><p>What I've built, and what I'm still figuring out.</p></div><section id="work" class="work" aria-labelledby="work-title">
+<div class="section-heading"><h2 id="work-title">Built & tested</h2><span class="margin-label">01 / IN THE REAL WORLD</span></div>
+<article class="project">
+<div class="project-content"><div class="project-meta"><span class="project-index">001</span><span>autonomous driving</span></div><h3>McQueen<span class="red-dot" aria-hidden="true">.</span></h3><p class="project-lead">Teaching a little car to find its own way.</p><p>A single RGB camera turns what it sees into steering and throttle. Built with Kartik Tagore, from pretrained driving models to actual turns on actual floors.</p><div class="project-links"><button class="text-link" id="watch-demo">Watch it drive <span aria-hidden="true">↗</span></button><a href="https://blog.sravjti.in/2026/10/20/mcqueen.html" target="_blank" rel="noopener">read the story ↗</a><a href="https://github.com/medhansh2808/McQueen" target="_blank" rel="noopener">code <span aria-hidden="true">↗</span></a></div><details class="under-hood"><summary>under the hood <span aria-hidden="true">+</span></summary><div><p>A frozen comma.ai/openpilot backbone, a small learned action head, and recurrent state for temporal context. Jetson Nano on the car; remote RTX 4090 inference.</p><p>Tested on real hardware, including autonomous turns. Reliable navigation remains a work in progress.</p></div></details></div>
+<button class="demo-photo" id="photo-demo" aria-label="Watch McQueen's driving demonstration"><img src="assets/mcqueen-poster.jpg" alt="McQueen, a red RC car carrying a camera and onboard electronics, on the floor of the lab" width="512" height="910"><span class="photo-play" aria-hidden="true">▶</span><span class="photo-caption">little car. big learning curve.</span><span class="photo-corner" aria-hidden="true">↗</span></button>
+</article>
+</section><section id="notes" class="notes" aria-labelledby="notes-title"><div class="section-heading"><h2 id="notes-title">Loose ends & open questions</h2><span class="margin-label">02 / ON MY MIND</span></div><p class="section-intro">A couple of directions I'm exploring. Very much in progress.</p>
+<details class="note"><summary><span class="note-marker">↳</span><span class="note-heading">What if a robot could learn on the job?<small>test-time training · memory · robot policies</small></span><span class="note-toggle" aria-hidden="true">+</span></summary><div class="note-body"><p>I'm exploring how test-time training can add adaptation and memory to pretrained robot policies. The interesting question for me: what should a robot remember from a demonstration, and how can that change its next action?</p><p>I'm particularly interested in tasks that need history, one-shot imitation, and making the training fit on a single GPU.</p><span class="note-status">research exploration</span></div></details>
+<details class="note"><summary><span class="note-marker">↳</span><span class="note-heading">Imagining a safe path isn't the same as finding one.<small>world models · trajectory selection · driving</small></span><span class="note-toggle" aria-hidden="true">+</span></summary><div class="note-body"><p>A driving policy proposes candidate trajectories; a world model predicts what might happen along each one. I'm experimenting with how to choose among them—and how to tell whether the failure came from the candidates or their ranking.</p><p>The question I'm chasing: when should we trust an imagined future, and when should uncertainty make us more cautious?</p><span class="note-status">ongoing experiments</span></div></details>
+</section></main>
+<footer><span>Medhansh Abhilash <span class="footer-dot">·</span> Mumbai, India</span><span class="footer-note"><a href="https://github.com/medhansh2808" target="_blank" rel="noopener">github ↗</a> <span class="footer-dot">·</span> always a work in progress</span></footer>
+</div>
+<dialog id="demo-dialog" aria-labelledby="demo-title"><div class="dialog-heading"><h2 id="demo-title">McQueen, out in the world.</h2><button id="close-demo" class="icon-button" aria-label="Close demonstration">×</button></div><video id="demo-video" controls playsinline preload="none" poster="assets/mcqueen-poster.jpg"><source src="assets/mcqueen.mp4" type="video/mp4">Your browser does not support HTML video. <a href="assets/mcqueen.mp4">Download the demo.</a></video><p>A real hardware test. A single RGB camera. An autonomous turn.</p></dialog>
+</body></html>
