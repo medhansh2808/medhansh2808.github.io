@@ -48,3 +48,44 @@ body{font-size:16px}.hello-copy>p:not(.eyebrow){font-size:16px}.quiet-link{font-
   .home-page .hello { padding-top: 20px; padding-bottom: 20px; }
   .art-note p { font-size: 21px; }
 }
+
+/* NAME WAVES START */
+h1 .ocean-name {
+  display: inline-block;
+  color: var(--blue);
+  cursor: default;
+  border-radius: 2px;
+}
+
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  h1 .ocean-name:hover,
+  h1 .ocean-name:focus {
+    background-image: url("assets/name-waves.svg");
+    background-repeat: repeat-x;
+    background-size: 240px 100%;
+    background-position: 0 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: name-ocean-drift 3.2s linear infinite;
+  }
+}
+
+h1 .ocean-name:focus-visible {
+  outline: 1px dashed var(--blue);
+  outline-offset: 6px;
+}
+
+@keyframes name-ocean-drift {
+  from { background-position: 0 0; }
+  to   { background-position: -240px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  h1 .ocean-name:hover,
+  h1 .ocean-name:focus {
+    animation: none;
+  }
+}
+/* NAME WAVES END */
