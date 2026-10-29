@@ -49,83 +49,71 @@ body{font-size:16px}.hello-copy>p:not(.eyebrow){font-size:16px}.quiet-link{font-
   .art-note p { font-size: 21px; }
 }
 
-/* NAME WAVES START */
+
+
+
+
+/* LIQUID NAME START */
 h1 .ocean-name {
   display: inline-block;
-  color: var(--blue);
+  position: relative;
+  white-space: nowrap;
   cursor: default;
-  border-radius: 2px;
+  color: var(--blue);
+}
+h1 .ocean-name::before,
+h1 .ocean-name::after {
+  content: none !important;
+}
+h1 .ocean-name .ocean-letter {
+  display: inline-block;
+  color: inherit;
+  transform-origin: 50% 75%;
+}
+h1 .ocean-name:focus-visible {
+  outline: 1px dashed var(--blue);
+  outline-offset: 8px;
+}
+h1 .ocean-name:is(:hover, :focus) .ocean-letter {
+  animation: liquid-letter 1.8s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.13s);
 }
 
 @supports ((background-clip: text) or (-webkit-background-clip: text)) {
-  h1 .ocean-name:hover,
-  h1 .ocean-name:focus {
-    background-image: url("assets/name-waves.svg");
+  h1 .ocean-name:is(:hover, :focus) .ocean-letter {
+    background-color: #0b5793;
+    background-image: url("assets/name-waves.svg?v=2");
     background-repeat: repeat-x;
-    background-size: 240px 100%;
-    background-position: 0 0;
+    background-size: 150px 100%;
+    background-position: calc(var(--i) * -22px) 0;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    animation: name-ocean-drift 3.2s linear infinite;
+    animation:
+      liquid-letter 1.8s ease-in-out infinite,
+      liquid-surf 2.4s linear infinite;
+    animation-delay: calc(var(--i) * -0.13s), 0s;
   }
 }
-
-h1 .ocean-name:focus-visible {
-  outline: 1px dashed var(--blue);
-  outline-offset: 6px;
+[data-theme="night"] h1 .ocean-name:is(:hover, :focus) .ocean-letter {
+  background-color: #62bfee;
 }
 
-@keyframes name-ocean-drift {
-  from { background-position: 0 0; }
-  to   { background-position: -240px 0; }
+@keyframes liquid-letter {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-4px) rotate(-3deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(3px) rotate(2deg); }
 }
-
+@keyframes liquid-surf {
+  from { background-position: calc(var(--i) * -22px) 0; }
+  to { background-position: calc(var(--i) * -22px - 150px) 0; }
+}
 @media (prefers-reduced-motion: reduce) {
-  h1 .ocean-name:hover,
-  h1 .ocean-name:focus {
+  h1 .ocean-name:is(:hover, :focus) .ocean-letter {
     animation: none;
+    transform: none;
   }
 }
-/* NAME WAVES END */
-
-/* BOLD WAVES START */
-h1 .ocean-name {
-  position: relative;
-}
-h1 .ocean-name:hover,
-h1 .ocean-name:focus {
-  background-color: #124b80;
-  background-image: url("assets/name-waves.svg?v=2");
-  background-size: 120px 100%;
-  animation: name-ocean-drift 4s linear infinite;
-}
-h1 .ocean-name::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -15px;
-  height: 23px;
-  pointer-events: none;
-  background: url("assets/name-waves.svg?v=2") repeat-x;
-  background-size: 120px 23px;
-  opacity: 0;
-  transform: translateY(3px);
-  transition: opacity .2s, transform .2s;
-  animation: name-ocean-drift 4s linear infinite paused;
-}
-h1 .ocean-name:hover::after,
-h1 .ocean-name:focus::after {
-  opacity: 1;
-  transform: translateY(0);
-  animation-play-state: running;
-}
-@media (prefers-reduced-motion: reduce) {
-  h1 .ocean-name,
-  h1 .ocean-name::after {
-    animation: none !important;
-  }
-}
-/* BOLD WAVES END */
+/* LIQUID NAME END */
