@@ -89,3 +89,43 @@ h1 .ocean-name:focus-visible {
   }
 }
 /* NAME WAVES END */
+
+/* BOLD WAVES START */
+h1 .ocean-name {
+  position: relative;
+}
+h1 .ocean-name:hover,
+h1 .ocean-name:focus {
+  background-color: #124b80;
+  background-image: url("assets/name-waves.svg?v=2");
+  background-size: 120px 100%;
+  animation: name-ocean-drift 4s linear infinite;
+}
+h1 .ocean-name::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -15px;
+  height: 23px;
+  pointer-events: none;
+  background: url("assets/name-waves.svg?v=2") repeat-x;
+  background-size: 120px 23px;
+  opacity: 0;
+  transform: translateY(3px);
+  transition: opacity .2s, transform .2s;
+  animation: name-ocean-drift 4s linear infinite paused;
+}
+h1 .ocean-name:hover::after,
+h1 .ocean-name:focus::after {
+  opacity: 1;
+  transform: translateY(0);
+  animation-play-state: running;
+}
+@media (prefers-reduced-motion: reduce) {
+  h1 .ocean-name,
+  h1 .ocean-name::after {
+    animation: none !important;
+  }
+}
+/* BOLD WAVES END */
